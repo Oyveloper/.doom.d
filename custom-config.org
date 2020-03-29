@@ -1,0 +1,5 @@
+#+TITLE: Config
+* Fullscreen at startup
+#+begin_src emacs-lisp
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+#+end_src

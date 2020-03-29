@@ -34,6 +34,7 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
 
+(org-babel-load-file(expand-file-name "~/.doom.d/custom-config.org"))
 
 (setq default-tab-width 4)
 
