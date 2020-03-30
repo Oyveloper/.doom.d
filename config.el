@@ -1,14 +1,11 @@
-;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
+(package-initialize)
 
-;; Place your private configuration here! Remember, you do not need to run 'doom
-;; sync' after modifying this file!
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
 
-
-;; Some functionality uses this to identify you, e.g. GPG configuration, email
-;; clients, file templates and snippets.
-(setq user-full-name "Øyvind Monsen"
-      user-mail-address "yvind.monsen@gmail.com")
-
+;; There are two ways to load a theme. Both assume the theme is installed and
+;; available. You can either set `doom-theme' or manually load a theme with the
+;; `load-theme' function. This is the default:
+(setq doom-theme 'doom-dracula)
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
 ;;
@@ -21,25 +18,45 @@
 ;; font string. You generally only need these two:
 (setq doom-font (font-spec :family "monospace" :size 14))
 
-;; There are two ways to load a theme. Both assume the theme is installed and
-;; available. You can either set `doom-theme' or manually load a theme with the
-;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+(setq mac-option-modifier nil
+      mac-command-modifier 'meta)
 
-;; If you use `org' and don't want your org files in the default location below,
-;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+(setq make-backup-files nil)
+(setq auto-save-default nil)
+
+;; Setting the kill shortcut
+(global-set-key (kbd "C-x k") 'kill-current-buffer)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
 
-(org-babel-load-file(expand-file-name "~/.doom.d/custom-config.org"))
+(use-package yasnippet
+  :ensure t
+  :config
+  (use-package yasnippet-snippets
+    :ensure t
+    )
+  (yas-reload-all))
 
-(setq default-tab-width 4)
+(add-hook 'python-mode-hook 'yas-minor-mode)
+(add-hook 'js-mode-hook 'yas-minor-mode)
+(add-hook 'emacs-lisp-mode-hook 'yas-minor-mode)
+(add-hook 'org-mode-hook 'yas-minor-mode)
 
-;; Setting the kill shortcut
-(global-set-key (kbd "C-x k") 'kill-current-buffer)
+;; If you use `org' and don't want your org files in the default location below,
+;; change `org-directory'. It must be set before org loads!
+(setq org-directory "~/org/")
+
+;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
+
+;; Place your private configuration here! Remember, you do not need to run 'doom
+;; sync' after modifying this file!
+
+;; Some functionality uses this to identify you, e.g. GPG configuration, email
+;; clients, file templates and snippets.
+(setq user-full-name "Øyvind Monsen"
+      user-mail-address "yvind.monsen@gmail.com")
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
