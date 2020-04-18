@@ -1,3 +1,5 @@
+(evilem-default-keybindings "ø")
+
 (package-initialize)
 
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
@@ -47,6 +49,11 @@
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
+
+(setq company-idle-delay 0)
+(setq company-minimum-prefix-length 2)
+
+(global-set-key (kbd "C-c h e") (lambda () (interactive)(find-file"/ssh:pi@home:/home/homeassistant/.homeassistant/configuration.yaml")))
 
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 

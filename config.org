@@ -70,6 +70,10 @@
   (add-hook 'emacs-lisp-mode-hook 'yas-minor-mode)
   (add-hook 'org-mode-hook 'yas-minor-mode)
 #+end_src
+* Easymotion
+#+begin_src elisp
+(evilem-default-keybindings "ø")
+#+end_src
 * Org
 #+begin_src emacs-lisp
 ;; If you use `org' and don't want your org files in the default location below,
@@ -77,6 +81,15 @@
 (setq org-directory "~/org/")
 #+end_src
 
+* Company
+#+begin_src emacs-lisp
+(setq company-idle-delay 0)
+(setq company-minimum-prefix-length 2)
+#+end_src
+* Homeassistant
+#+begin_src emacs-lisp
+  (global-set-key (kbd "C-c h e") (lambda () (interactive)(find-file"/ssh:pi@home:/home/homeassistant/.homeassistant/configuration.yaml")))
+#+end_src
 * Misc not yet handeled
 #+begin_src emacs-lisp
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
@@ -106,3 +119,6 @@
 ;; You can also try 'gd' (or 'C-c g d') to jump to their definition and see how
 ;; they are implemented.
 #+end_src
+
+#+RESULTS:
+: yvind.monsen@gmail.com
