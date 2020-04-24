@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+#contributor: Øyvind Monsen
+#name: java-src
+#key: srcj
+# --
+#+HEADERS: :classname ${1:Main}
+#+begin_src java
+class $1 {
+
+}
+
+#+end_src
