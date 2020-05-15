@@ -84,6 +84,7 @@
 
 (setq company-idle-delay 0)
 (setq company-minimum-prefix-length 2)
+(setq company-show-numbers t)
 
 (global-set-key (kbd "C-c h e") (lambda () (interactive)(find-file"/ssh:pi@home:/home/homeassistant/.homeassistant/configuration.yaml")))
 
